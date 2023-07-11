@@ -24,7 +24,7 @@
     </div>
     <div>
       <div class="row">
-        <div class="col-8 m0-auto d-flex al-center j-around">
+        <div class="col-12 m0-auto d-flex al-center j-between">
           <b-button @click="reset" variant="success" size="sm">Очистить поля</b-button>
           <b-button @click="addNote" variant="success" size="sm">Сохранить заметку</b-button>
         </div>

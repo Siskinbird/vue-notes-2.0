@@ -1,23 +1,40 @@
 <template>
   <div id="app">
     <div class="container-sm">
-      <h1>{{ title }}</h1>
+      <div class="row-md">
+        <div class='col-7 m0-auto'>
+          <h1>{{ title }}</h1>
 
-      <Message v-if="message" :message="message" :showDismiss="showDismiss"/>
+          <Message v-if="message" :message="message" :showDismiss="showDismiss"/>
+        </div>
 
-      <!--new note-->
 
-      <NewNote
-          :note="note"
-          @addNote="addNote"
-          @reset="reset"
-      />
+        <div class='col-12 m0-auto'>
+          <!--new note-->
 
-      <!--notes-->
-      <Notes
-          :notes="notes"
-          @remove="removeNote"
-      />
+          <NewNote
+              :note="note"
+              @addNote="addNote"
+              @reset="reset"
+          />
+        </div>
+
+
+          <div class='col-7 m0-auto'>
+
+          <!--notes-->
+          <Notes
+              :notes="notes"
+              @remove="removeNote"
+          />
+        </div>
+
+
+      </div>
+
+
+
+
 
     </div>
   </div>
