@@ -1,17 +1,19 @@
 <template>
   <div class="new-note ">
     <div class="note-title">
-      <h2>Title</h2>
+      <h5 class="title">Title:</h5>
       <b-form-input
+          class="m0-auto"
           v-model="note.title"
           type="text"
           placeholder="Введите заголовок заметки">
       </b-form-input>
     </div>
-
-    <h5 class="pt-20 pb-20">Description</h5>
+  <br/>
+    <h5 class="description">Description:</h5>
     <div>
       <b-form-textarea
+          class="m0-auto"
           id="textarea"
           v-model="note.description"
           placeholder="Введите текст заметки..."
@@ -29,7 +31,6 @@
           <b-button @click="addNote" variant="success" size="sm">Сохранить заметку</b-button>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -58,7 +59,17 @@ export default {
 </script>
 <style lang="scss">
 .form-control {
-  margin: 0 auto;
-  max-width: 600px;
+  //margin-top: 20px;
 }
+.description, .title {
+  //margin-top: 10px;
+  //margin-bottom: 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 16px;
+}
+h5 {
+
+}
+
 </style>

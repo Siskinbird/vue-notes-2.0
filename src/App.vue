@@ -2,14 +2,14 @@
   <div id="app">
     <div class="container-sm">
       <div class="row-md">
-        <div class='col-7 m0-auto'>
+        <div class='col-9 m0-auto'>
           <h1>{{ title }}</h1>
 
           <Message v-if="message" :message="message" :showDismiss="showDismiss"/>
         </div>
 
 
-        <div class='col-12 m0-auto'>
+        <div class='col-9 m0-auto'>
           <!--new note-->
 
           <NewNote
@@ -20,7 +20,7 @@
         </div>
 
 
-          <div class='col-7 m0-auto'>
+          <div class='col-9 m0-auto'>
 
           <!--notes-->
           <Notes
