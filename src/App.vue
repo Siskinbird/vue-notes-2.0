@@ -1,25 +1,24 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container-sm">
       <h1>{{ title }}</h1>
 
       <Message v-if="message" :message="message" :showDismiss="showDismiss"/>
 
+      <!--new note-->
+
       <NewNote
           :note="note"
           @addNote="addNote"
+          @reset="reset"
       />
-      <!--      <div class="message" v-if="message">-->
-      <!--        <p>{{message}}</p>-->
-      <!--      </div>-->
-
-
-      <!--new note-->
 
       <!--notes-->
       <Notes
           :notes="notes"
+          @remove="removeNote"
       />
+
     </div>
   </div>
 </template>
@@ -71,8 +70,8 @@ export default {
 
       let { title, description} = this.note
 
-      if (title === '' && description === '') {
-        this.message = 'Title or description can`t be blank'
+      if (title === '' || description === '') {
+        this.message = 'Заголовок заметки не может быть пустым!'
         this.showDismiss = true
         return false;
       }
@@ -90,6 +89,9 @@ export default {
     reset() {
       this.note.title = '',
       this.note.description = ''
+    },
+    removeNote(index) {
+      this.notes.splice(index, 1)
     }
   }
 }
@@ -104,4 +106,73 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1-1-auto {
+  flex: 1 1 auto;
+}
+
+.flex-50 {
+  flex: 50%;
+}
+
+.flex-33 {
+  flex: 33%;
+}
+
+.al-center {
+  align-items: center;
+}
+
+.al-start {
+  align-items: flex-start;
+}
+
+.al-end {
+  align-items: flex-end;
+}
+
+.j-between {
+  justify-content: space-between;
+}
+
+.j-around {
+  justify-content: space-around;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.gap-15 {
+  gap: 15px;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.m0-auto {
+  margin: 0 auto;
+}
+//TODO Сделать сетку для блокнота
 </style>
