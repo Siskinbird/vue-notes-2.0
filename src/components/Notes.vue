@@ -1,5 +1,5 @@
 <template>
-  <div class="notes d-flex flex-wrap gap10 j-start">
+  <div class="notes d-flex flex-wrap gap10 j-between">
     <div class="note" v-for="(note, index) in notes" :key="index">
       <div class="note-header d-flex al-center j-between">
         <div class="note-header__title d-flex al-center">
@@ -35,6 +35,11 @@ export default {
 }
 </script>
 <style lang="scss">
+.notes {
+  margin-top: 30px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
 .note {
   margin: 20px auto;
   width: 200px;
