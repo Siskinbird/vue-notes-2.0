@@ -34,7 +34,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .notes {
   margin-top: 30px;
   border: 1px solid #ced4da;

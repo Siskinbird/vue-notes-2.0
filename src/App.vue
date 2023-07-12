@@ -22,11 +22,17 @@
 
           <div class='col-9 m0-auto'>
 
+
+
           <!--notes-->
           <Notes
               :notes="notes"
               @remove="removeNote"
           />
+            <div class="note-header d-flex j-end al-center mt-20">
+              <b-icon icon="grid"></b-icon>
+              <b-icon icon="view-stacked"></b-icon>
+            </div>
         </div>
 
 
@@ -123,6 +129,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.note-header {
+  margin-top: 30px;
+}
 
 .d-flex {
   display: flex;
@@ -131,7 +140,9 @@ export default {
 .flex-column {
   flex-direction: column;
 }
-
+.j-end {
+  justify-content: end;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -191,5 +202,4 @@ export default {
 .m0-auto {
   margin: 0 auto;
 }
-//TODO Сделать сетку для блокнота
 </style>
