@@ -9,9 +9,9 @@
             <b-icon @click="removeNote(index)" class="removeIco" icon="x-square" font-scale="1"></b-icon>
         </div>
       </div>
-      <div class="note-body">
+      <div class="note-body d-flex flex-column j-between">
         <p>{{note.description}}</p>
-        <p>{{note.date}}</p>
+        <p class="date">{{ note.date | moment('calendar')}}</p>
       </div>
     </div>
   </div>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+
+const moment = require('vue-moment')
 export default {
   props: {
     notes: {
@@ -70,5 +72,9 @@ export default {
   margin-right: 10px;
   cursor: pointer;
 }
-
+.date {
+  text-align: right;
+  margin: 0;
+  padding: 4px;
+}
 </style>

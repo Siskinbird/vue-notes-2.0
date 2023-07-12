@@ -73,7 +73,7 @@ export default {
       notes: [
         {
           title: 'First note',
-          description: 'Description for first note',
+          description: 'Description for first note, в натуре',
           date: new Date(Date.now()).toLocaleDateString()
         },
         {
@@ -120,6 +120,11 @@ export default {
     },
     removeNote(index) {
       this.notes.splice(index, 1)
+    }
+  },
+  computed: {
+    search(){
+
     }
   }
 }
