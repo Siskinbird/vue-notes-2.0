@@ -21,18 +21,19 @@
 
 
           <div class='col-9 m0-auto'>
-
+            <div class="note-header d-flex j-end al-center mt-20">
+              <b-icon icon="grid" class="cube mr-15 pointer" :class="{ active:grid }" @click="grid = true"></b-icon>
+              <b-icon icon="view-stacked" class="horizon pointer" :class="{ active:!grid }" @click="grid = false"></b-icon>
+            </div>
 
 
           <!--notes-->
           <Notes
               :notes="notes"
+              :grid="grid"
               @remove="removeNote"
           />
-            <div class="note-header d-flex j-end al-center mt-20">
-              <b-icon icon="grid"></b-icon>
-              <b-icon icon="view-stacked"></b-icon>
-            </div>
+
         </div>
 
 
@@ -64,6 +65,7 @@ export default {
       title: 'Notes App',
       message: null,
       showDismiss: false,
+      grid: true,
       note: {
         title: '',
         description: ''
@@ -93,12 +95,15 @@ export default {
 
       let { title, description} = this.note
 
-      if (title === '' || description === '') {
+      if (title === '') {
         this.message = 'Заголовок заметки не может быть пустым!'
         this.showDismiss = true
         return false;
-      }
-      else {
+      } else if (description === '') {
+        this.message = 'Заголовок заметки не может быть пустым!'
+        this.showDismiss = true
+        return false;
+      } else {
         this.notes.push({
           title,
           description,
@@ -110,7 +115,7 @@ export default {
       }
     },
     reset() {
-      this.note.title = '',
+      this.note.title = ''
       this.note.description = ''
     },
     removeNote(index) {
@@ -122,7 +127,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Monospaced, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -147,17 +152,6 @@ export default {
   flex-wrap: wrap;
 }
 
-.flex-1-1-auto {
-  flex: 1 1 auto;
-}
-
-.flex-50 {
-  flex: 50%;
-}
-
-.flex-33 {
-  flex: 33%;
-}
 
 .al-center {
   align-items: center;
@@ -201,5 +195,23 @@ export default {
 
 .m0-auto {
   margin: 0 auto;
+}
+.mr-15 {
+  margin-right: 6px;
+}
+.pointer {
+  cursor: pointer;
+}
+.bi-grid, .horizon, .cube {
+  transition: ease-in-out .3s;
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  &.active{
+    color: #28a745;
+    box-shadow: 4px 4px 8px 0 rgba(40, 167, 69, 0.2);
+    transform: scale(1.3);
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="notes d-flex flex-wrap gap10 j-between">
-    <div class="note" v-for="(note, index) in notes" :key="index">
+    <div class="note" :class="{full: !grid}" v-for="(note, index) in notes" :key="index">
       <div class="note-header d-flex al-center j-between">
         <div class="note-header__title d-flex al-center">
           <p class="mt-0 mb-0">{{note.title}}</p>
@@ -24,6 +24,10 @@ export default {
     notes: {
       type: Array,
       required: true
+    },
+    grid: {
+      type: Boolean,
+      required: true
     }
   },
   methods: {
@@ -35,6 +39,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 .notes {
   margin-top: 30px;
   border: 1px solid #ced4da;
@@ -42,13 +47,19 @@ export default {
 }
 .note {
   margin: 20px auto;
-  width: 200px;
+  width: 45%;
+  gap: 10px;
   text-align: left;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  transition: ease-in-out .4s;
   &-header {
     background-color: #fd7e14;;
     padding: 0;
+    margin: 0;
+  }
+  &.full {
+    width: 96%
   }
   p {
     padding: 10px;
