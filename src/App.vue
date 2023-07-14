@@ -21,11 +21,11 @@
 
           <div class='col-9 m0-auto'>
             <div>
-
+<p> {{search}}</p>
             </div>
 
             <div class="note-header row-4 d-flex j-end al-center mt-20">
-              <Search :search = 'search' placeholder="Поиск"/>
+              <Search @search = 'search = $event' placeholder="Поиск"/>
               <b-icon icon="grid" class="cube mr-15 pointer" :class="{ active:grid }" @click="grid = true"></b-icon>
               <b-icon icon="view-stacked" class="horizon pointer" :class="{ active:!grid }" @click="grid = false"></b-icon>
             </div>
@@ -33,7 +33,7 @@
 
           <!--notes-->
           <Notes
-              :notes="notes"
+              :notes="notefilter"
               :grid="grid"
               @remove="removeNote"
           />
@@ -130,8 +130,20 @@ export default {
     }
   },
   computed: {
-    search(){
-
+    notefilter(){
+      let arr = this.notes,
+          search = this.search
+      if (!search) return arr
+      //lower
+      search = search.trim().toLowerCase()
+      //filter
+      arr = arr.filter(function(item) {
+        if (item.title.toLowerCase().indexOf(search) !== -1) {
+          return item
+        }
+      })
+      //Error
+      return arr
     }
   }
 }

@@ -5,7 +5,6 @@
       <b-icon icon="search"></b-icon>
     </b-input-group-prepend>
     <b-form-input type="search" :placeholder="placeholder" v-model="search">
-      Ghbdtn
     </b-form-input>
   </b-input-group>
 </div>
