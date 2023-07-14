@@ -49,7 +49,7 @@ export default {
 }
 .note {
   margin: 20px auto;
-  width: 45%;
+  min-width: 45%;
   gap: 10px;
   text-align: left;
   border: 1px solid #ced4da;
@@ -61,7 +61,7 @@ export default {
     margin: 0;
   }
   &.full {
-    width: 96%
+    min-width: 96%
   }
   p {
     padding: 10px;

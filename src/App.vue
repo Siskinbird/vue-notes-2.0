@@ -8,7 +8,6 @@
           <Message v-if="message" :message="message" :showDismiss="showDismiss"/>
         </div>
 
-
         <div class='col-9 m0-auto'>
           <!--new note-->
 
@@ -21,7 +20,12 @@
 
 
           <div class='col-9 m0-auto'>
-            <div class="note-header d-flex j-end al-center mt-20">
+            <div>
+
+            </div>
+
+            <div class="note-header row-4 d-flex j-end al-center mt-20">
+              <Search :search = 'search' placeholder="Поиск"/>
               <b-icon icon="grid" class="cube mr-15 pointer" :class="{ active:grid }" @click="grid = true"></b-icon>
               <b-icon icon="view-stacked" class="horizon pointer" :class="{ active:!grid }" @click="grid = false"></b-icon>
             </div>
@@ -51,18 +55,21 @@
 import Message from '@/components/Message.vue'
 import NewNote from '@/components/NewNote.vue'
 import Notes from '@/components/Notes.vue'
+import Search from '@/components/Search.vue'
 
 
 export default {
   components: {
     Message,
     NewNote,
-    Notes
+    Notes,
+    Search
   },
   name: 'App',
   data() {
     return {
       title: 'Notes App',
+      search: '',
       message: null,
       showDismiss: false,
       grid: true,
